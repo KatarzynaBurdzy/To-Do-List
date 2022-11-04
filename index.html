@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="add-new" id="add-new">
+        <button class="btn-add">ADD NEW TASK</button>
+      </div>
+
+      <div class="new-form hidden">
+        <h3 class="task-name">Task:</h3>
+        <input type="text" />
+        <span class="Deadline:"></span>
+        <span class="task-note">
+          <h3>Notes:</h3>
+          <textarea
+            name="task-note-textarea"
+            id="task-note-textarea"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </span>
+        <button class="btn-add-form" type="submit">Add</button>
+        <button class="btn-cancel-form">Cancel</button>
+      </div>
+
+      <div class="form__task-list" id="form__task-list">
+        <h3>TASKS TO COMPLETE:</h3>
+        <ul class="form__ul">
+          <li class="form__li">example</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="list.js"></script>
+  </body>
+</html>
