@@ -13,9 +13,9 @@
         <button class="btn-add">ADD NEW TASK</button>
       </div>
 
-      <div class="new-form hidden">
+      <form class="new-form hidden">
         <h3 class="task-name">Task:</h3>
-        <input type="text" />
+        <input type="text" class="task-name-input" />
         <span class="Deadline:"></span>
         <span class="task-note">
           <h3>Notes:</h3>
@@ -23,12 +23,12 @@
             name="task-note-textarea"
             id="task-note-textarea"
             cols="30"
-            rows="10"
+            rows="5"
           ></textarea>
         </span>
         <button class="btn-add-form" type="submit">Add</button>
         <button class="btn-cancel-form">Cancel</button>
-      </div>
+      </form>
 
       <div class="form__task-list" id="form__task-list">
         <h3>TASKS TO COMPLETE:</h3>

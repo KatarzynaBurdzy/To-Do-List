@@ -1,5 +1,7 @@
 // Selected elements
 const newTaskForm = document.querySelector(".new-form");
+const taskNameInput = document.querySelector(".task-name-input");
+const TaskNoteInput = document.querySelector("#task-note-textarea");
 // Buttons
 const btnMainAddNewTask = document.querySelector(".btn-add");
 const btnAddToList = document.querySelector(".btn-add-form");
@@ -15,4 +17,8 @@ const btnFunctionality = function () {
 btnMainAddNewTask.addEventListener("click", btnFunctionality);
 btnCancelNewTaskForm.addEventListener("click", btnFunctionality);
 
-btnAddToList.addEventListener("click", function () {});
+btnAddToList.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (!taskNameInput.value) alert("Add task name");
+  else alert("okej");
+});
