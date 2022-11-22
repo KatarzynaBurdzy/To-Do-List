@@ -5,36 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script defer src="list.js"></script>
   </head>
   <body>
-    <div class="main">
+    <main>
       <div class="add-new" id="add-new">
-        <button class="btn-add">ADD NEW TASK</button>
+        <button class="btn btn-add">ADD NEW TASK</button>
       </div>
 
       <form class="new-form hidden">
-        <h3 class="task-name">Task:</h3>
+        <h3 class="task-name">TASK:</h3>
         <input type="text" class="task-name-input" />
-        <span class="Deadline:"></span>
         <span class="task-note">
-          <h3>Notes:</h3>
+          <h3>NOTES:</h3>
           <textarea
             name="task-note-textarea"
-            id="task-note-textarea"
+            class="task-note-textarea"
             cols="30"
             rows="5"
           ></textarea>
         </span>
-        <button class="btn-add-form" type="submit">Add</button>
+        <br />
+        <!-- <span class="Deadline:"></span> -->
+        <button class="btn btn-add-form" type="submit">ADD</button>
       </form>
 
-      <div class="form__task-list" id="form__task-list">
-        <ul class="form__ul">
-          TO DO LIST:
+      <div class="task-list" id="task-list">
+        <ul class="ul">
+          <h1>TO DO LIST:</h1>
         </ul>
       </div>
-    </div>
+    </main>
   </body>
 </html>

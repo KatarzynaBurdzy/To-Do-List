@@ -1,7 +1,7 @@
 // Selected elements
 const newTaskForm = document.querySelector(".new-form");
 const taskNameInput = document.querySelector(".task-name-input");
-const taskNoteInput = document.querySelector("#task-note-textarea");
+const taskNoteInput = document.querySelector(".task-note-textarea");
 const unorderedList = document.querySelector("ul");
 // Buttons
 const btnMainAddNewTask = document.querySelector(".btn-add");
@@ -13,26 +13,21 @@ const clearInput = function () {
   taskNoteInput.value = "";
 };
 
-const addHTML = function (text) {
-  unorderedList.insertAdjacentHTML("beforeend", text);
-};
-
 const createList = function (toDo, note) {
   if (taskNameInput.value) {
-    if (!note) {
-      const text = `<li class='task'>
-    <span class='to-do'>${toDo}</span>`;
-      addHTML(text);
-      clearInput();
-    } else {
-      const text = `<li class='task'>
-      <span class='to-do'>${toDo}</span>
+    const text = `<li class='task'>
+      <span class='to-do'>${toDo}
+      <button class="cancel">
+      cancel</button>
+      <button class="more">
+      more
+      </button>
+</span>
       <br>
       <span class='note'>Note: ${note}</span>
       </li>`;
-      addHTML(text);
-      clearInput();
-    }
+    unorderedList.insertAdjacentHTML("beforeend", text);
+    clearInput();
   } else alert("add task name");
 };
 

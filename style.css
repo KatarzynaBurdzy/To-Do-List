@@ -8,18 +8,82 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Lato", sans-serif;
 }
 
 body {
-  font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
   padding: 3rem;
   box-sizing: border-box;
-  position: absolute;
+  background-color: #042304;
+  color: #ffd400;
+}
+
+main {
+  width: 95vw;
+  margin-top: 10%;
+  text-align: center;
+  border: solid;
+}
+
+.add-new {
+  padding: 3rem;
+  height: 10rem;
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: double #4e3205 0.5rem;
+  color: #311f03;
+  background-color: #fffae5;
+  font-weight: 700;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(4px);
+  background-color: #ffee99;
+}
+
+.btn-add {
+  width: 25rem;
+  font-size: 2rem;
+}
+
+.btn-add-form {
+  width: 15rem;
+}
+
+.task-name-input {
+  width: 25rem;
+}
+
+.task-note-textarea {
+  width: 25rem;
+}
+
+.new-form {
+  font-size: 1.3rem;
+}
+
+/* .task-list {
+} */
+
+.ul {
+  list-style: none;
+  text-align: center;
 }
 
 .hidden {
   display: none;
+}
+
+li {
+  height: 2rem;
+  text-align: center;
 }
