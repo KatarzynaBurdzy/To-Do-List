@@ -6,44 +6,48 @@ const unorderedList = document.querySelector("ul");
 // Buttons
 const btnMainAddNewTask = document.querySelector(".btn-add");
 const btnAddToList = document.querySelector(".btn-add-form");
-// const btnCancelNewTaskForm = document.querySelector(".btn-cancel-form");
-
-// Arrays
-// const taskArray = [];
 
 // Functions
-const btnFunctionality = function () {
-  newTaskForm.classList.toggle("hidden");
-  // btnMainAddNewTask.classList.toggle("hidden");
+const clearInput = function () {
+  taskNameInput.value = "";
+  taskNoteInput.value = "";
 };
 
-const createLiEl = function (a) {
-  if (a.length > 0) {
-    const [t, n] = a;
-    const liEl = document.createElement("li");
-    liEl.innerHTML = `<span class='li-el'>${t} ${n}</span>`;
-    unorderedList.appendChild(liEl);
-  }
+const addHTML = function (text) {
+  unorderedList.insertAdjacentHTML("beforeend", text);
 };
 
-const createList = function (e) {
+const createList = function (toDo, note) {
   if (taskNameInput.value) {
-    const arrTemp = [];
-    arrTemp.push(taskNameInput.value);
-    arrTemp.push(taskNoteInput.value);
-    // taskArr.push(arrTemp);
-    // console.log(taskArr);
-    createLiEl(arrTemp);
-    taskNameInput.value = "";
-    taskNoteInput.value = "";
+    if (!note) {
+      const text = `<li class='task'>
+    <span class='to-do'>${toDo}</span>`;
+      addHTML(text);
+      clearInput();
+    } else {
+      const text = `<li class='task'>
+      <span class='to-do'>${toDo}</span>
+      <br>
+      <span class='note'>Note: ${note}</span>
+      </li>`;
+      addHTML(text);
+      clearInput();
+    }
   } else alert("add task name");
 };
 
 // Event listeners
-btnMainAddNewTask.addEventListener("click", btnFunctionality);
-// btnCancelNewTaskForm.addEventListener("click", btnFunctionality);
+btnMainAddNewTask.addEventListener("click", () => {
+  newTaskForm.classList.toggle("hidden");
+  if (newTaskForm.classList.contains("hidden")) {
+    btnMainAddNewTask.textContent = "ADD NEW TASK";
+  } else {
+    btnMainAddNewTask.textContent = "CANCEL";
+    clearInput();
+  }
+});
 
 btnAddToList.addEventListener("click", (e) => {
   e.preventDefault();
-  createList();
+  createList(taskNameInput.value, taskNoteInput.value);
 });
