@@ -20,11 +20,14 @@ body {
   color: #ffd400;
 }
 
+.hidden {
+  display: none;
+}
+
 main {
   width: 95vw;
   margin-top: 10%;
   text-align: center;
-  border: solid;
 }
 
 .add-new {
@@ -71,19 +74,37 @@ main {
   font-size: 1.3rem;
 }
 
-/* .task-list {
-} */
+/* List */
+.task-list {
+  margin-top: 3rem;
+}
 
 .ul {
   list-style: none;
-  text-align: center;
-}
-
-.hidden {
-  display: none;
 }
 
 li {
-  height: 2rem;
-  text-align: center;
+  height: 5rem;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.btn-form {
+  border: solid 1px;
+}
+
+.btn-cancel {
+  background-color: red;
+}
+
+.btn-cancel:active {
+  background-color: darkred;
+}
+
+.btn-more {
+  background-color: yellow;
+}
+
+.btn-more:active {
+  background-color: darkgoldenrod;
 }

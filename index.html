@@ -16,30 +16,39 @@
   </head>
   <body>
     <main>
-      <div class="add-new" id="add-new">
-        <button class="btn btn-add">ADD NEW TASK</button>
+      <div class="add-form-container">
+        <div class="add-new" id="add-new">
+          <button class="btn btn-add">ADD NEW TASK</button>
+        </div>
+
+        <form class="new-form hidden">
+          <h3 class="task-name">TASK:</h3>
+          <input type="text" class="task-name-input" />
+          <span class="task-note">
+            <h3>NOTES:</h3>
+            <textarea
+              name="task-note-textarea"
+              class="task-note-textarea"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </span>
+          <br />
+          <!-- <span class="Deadline:"></span> -->
+          <button class="btn btn-add-form" type="submit">ADD</button>
+        </form>
       </div>
 
-      <form class="new-form hidden">
-        <h3 class="task-name">TASK:</h3>
-        <input type="text" class="task-name-input" />
-        <span class="task-note">
-          <h3>NOTES:</h3>
-          <textarea
-            name="task-note-textarea"
-            class="task-note-textarea"
-            cols="30"
-            rows="5"
-          ></textarea>
-        </span>
-        <br />
-        <!-- <span class="Deadline:"></span> -->
-        <button class="btn btn-add-form" type="submit">ADD</button>
-      </form>
-
-      <div class="task-list" id="task-list">
+      <div class="task-list hidden">
         <ul class="ul">
           <h1>TO DO LIST:</h1>
+          <!-- <li class="task">
+            <span class="to-do"> example </span>
+            <button class="btn btn-form btn-cancel">cancel</button>
+            <button class="btn btn-form btn-more">more</button>
+            <br />
+            <span class="note hidden">Note: example</span>
+          </li> -->
         </ul>
       </div>
     </main>
