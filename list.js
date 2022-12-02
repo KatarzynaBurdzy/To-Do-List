@@ -12,25 +12,39 @@ const btnAddToList = document.querySelector(".btn-add-form");
 const btnCancel = document.querySelector(".btn-cancel");
 const btnMore = document.querySelector(".btn-more");
 
+// Array
+const listArr = [];
+let id = 0;
+
 // Functions
 const clearInput = function () {
   taskNameInput.value = "";
   taskNoteInput.value = "";
 };
 
-const createList = function (toDo, note) {
+// add TASK to the listArr so later you can remove it
+const addListArr = function (toDo, note, id, done, trash) {
+  listArr.push({
+    name: toDo,
+    note: note,
+    id: id,
+    done: false,
+    trash: false,
+  });
+  id++;
+};
+
+// add DONE class to checkbox, TRASH to
+const createList = function (toDo, note, id, done, trash) {
   if (taskNameInput.value) {
-    const text = `<li class='task'>
-      <span class='to-do'>${toDo}
-      <button class="cancel">
-      cancel</button>
-      <button class="more">
-      more
-      </button>
-</span>
-      <br>
-      <span class='note hidden'>Note: ${note}</span>
-      </li>`;
+    const text = `
+    <li class="task" id=${id}>
+    <span class="to-do">${toDo}</span>
+    <button class="btn btn-form btn-cancel">cancel</button>
+    <button class="btn btn-form btn-more">more</button>
+    <br />
+    <span class="note hidden">Note: ${note}</span>
+  </li>`;
     unorderedList.insertAdjacentHTML("beforeend", text);
     clearInput();
   } else alert("add task name");
@@ -49,10 +63,12 @@ btnMainAddNewTask.addEventListener("click", () => {
 
 btnAddToList.addEventListener("click", (e) => {
   e.preventDefault();
-  createList(taskNameInput.value, taskNoteInput.value);
+  createList(taskNameInput.value, taskNoteInput.value, id, false, false);
   taskListDiv.classList.remove("hidden");
+  alert("You successfully added a new task!");
 });
 
-btnMore.addEventListener("click", function () {
-  liNote.classList.toggle("hidden");
-});
+// btnMore.addEventListener("click", function () {
+//   // console.log("fdss");
+//   liNote.classList.toggle("hidden");
+// });
