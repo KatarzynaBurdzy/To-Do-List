@@ -9,12 +9,6 @@ const liNote = document.querySelector(".note");
 // Buttons
 const btnMainAddNewTask = document.querySelector(".btn-add");
 const btnAddToList = document.querySelector(".btn-add-form");
-const btnCancel = document.querySelector(".btn-cancel");
-const btnMore = document.querySelector(".btn-more");
-
-// Array
-const listArr = [];
-let id = 0;
 
 // Functions
 const clearInput = function () {
@@ -22,32 +16,53 @@ const clearInput = function () {
   taskNoteInput.value = "";
 };
 
-// add TASK to the listArr so later you can remove it
-const addListArr = function (toDo, note, id, done, trash) {
-  listArr.push({
-    name: toDo,
-    note: note,
-    id: id,
-    done: false,
-    trash: false,
-  });
-  id++;
-};
+const createListEl = function (toDo, note) {
+  // Creating new elements
+  const newLi = document.createElement("li");
+  const h3Text = document.createElement("span");
+  const newNote = document.createElement("p");
+  const btnTrash = document.createElement("button");
+  const btnMore = document.createElement("button");
 
-// add DONE class to checkbox, TRASH to
-const createList = function (toDo, note, id, done, trash) {
-  if (taskNameInput.value) {
-    const text = `
-    <li class="task" id=${id}>
-    <span class="to-do">${toDo}</span>
-    <button class="btn btn-form btn-cancel">cancel</button>
-    <button class="btn btn-form btn-more">more</button>
-    <br />
-    <span class="note hidden">Note: ${note}</span>
-  </li>`;
-    unorderedList.insertAdjacentHTML("beforeend", text);
-    clearInput();
-  } else alert("add task name");
+  // Adding text to elements
+  h3Text.textContent = `${toDo}`;
+  newNote.textContent = `${note}`;
+  btnTrash.textContent = `delete`;
+  btnMore.textContent = `more_horiz`;
+
+  // Adding classes to elements
+  newLi.classList.add("task");
+  newNote.classList.add("note", "hidden");
+  btnTrash.classList.add(
+    "btn",
+    "btn-form",
+    "btn-trash",
+    "material-symbols-outlined"
+  );
+  btnMore.classList.add(
+    "btn",
+    "btn-form",
+    "btn-more",
+    "material-symbols-outlined"
+  );
+
+  // Adding event listeners to buttons
+  btnTrash.addEventListener("click", () => {
+    if (confirm("Your task will be deleted")) {
+      newLi.remove();
+    }
+  });
+
+  btnMore.addEventListener("click", () => newNote.classList.toggle("hidden"));
+
+  // Appending children
+  newLi.appendChild(h3Text);
+  newLi.appendChild(btnTrash);
+  newLi.appendChild(btnMore);
+  newLi.appendChild(newNote);
+  unorderedList.appendChild(newLi);
+
+  console.log(newLi);
 };
 
 // Event listeners
@@ -63,9 +78,11 @@ btnMainAddNewTask.addEventListener("click", () => {
 
 btnAddToList.addEventListener("click", (e) => {
   e.preventDefault();
-  createList(taskNameInput.value, taskNoteInput.value, id, false, false);
-  taskListDiv.classList.remove("hidden");
-  alert("You successfully added a new task!");
+  if (taskNameInput.value) {
+    createListEl(taskNameInput.value, taskNoteInput.value);
+    clearInput();
+    taskListDiv.classList.remove("hidden");
+  } else alert("Add task name");
 });
 
 // btnMore.addEventListener("click", function () {

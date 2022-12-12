@@ -30,37 +30,7 @@ main {
   text-align: center;
 }
 
-.add-new {
-  padding: 3rem;
-  height: 10rem;
-}
-
-.btn {
-  padding: 1rem;
-  border-radius: 1rem;
-  border: double #4e3205 0.5rem;
-  color: #311f03;
-  background-color: #fffae5;
-  font-weight: 700;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn:active {
-  transform: translateY(4px);
-  background-color: #ffee99;
-}
-
-.btn-add {
-  width: 25rem;
-  font-size: 2rem;
-}
-
-.btn-add-form {
-  width: 15rem;
-}
+/* Form */
 
 .task-name-input {
   width: 25rem;
@@ -87,17 +57,55 @@ li {
   height: 5rem;
   font-size: 2rem;
   margin-bottom: 3rem;
+  display: grid;
 }
 
+/* Buttons */
+
+.btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: double #4e3205 0.5rem;
+  color: #311f03;
+  background-color: #fffae5;
+  font-weight: 700;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(4px);
+  background-color: #ffee99;
+}
+
+/* Buttons form */
+.btn-add {
+  width: 25rem;
+  font-size: 2rem;
+}
+
+.btn-add-form {
+  width: 15rem;
+}
+
+.add-new {
+  padding: 3rem;
+  height: 10rem;
+}
+
+/* Buttons list */
 .btn-form {
   border: solid 1px;
 }
 
-.btn-cancel {
+.btn-trash {
   background-color: red;
+  margin-left: 20px;
 }
 
-.btn-cancel:active {
+.btn-trash:active {
   background-color: darkred;
 }
 
