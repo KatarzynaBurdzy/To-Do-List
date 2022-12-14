@@ -20,14 +20,18 @@ body {
   color: #ffd400;
 }
 
-.hidden {
-  display: none;
-}
-
 main {
   width: 95vw;
   margin-top: 10%;
   text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.material-icons {
+  font-size: 18px;
 }
 
 /* Form */
@@ -46,19 +50,52 @@ main {
 
 /* List */
 .task-list {
-  margin-top: 3rem;
+  margin: 3rem auto;
+  display: inline-block;
+}
+
+.task-list h1 {
+  font-size: 20px;
+  text-decoration: underline;
+  margin-bottom: 15px;
 }
 
 .ul {
   list-style: none;
+  /* width: 400px; */
+  /* margin: 0 25vw; */
+  display: block;
 }
 
 li {
-  height: 5rem;
-  font-size: 2rem;
+  font-size: 18px;
   margin-bottom: 3rem;
   display: grid;
+  width: 300px;
+  grid-template-columns: auto 2fr auto auto;
+  /* border: solid; */
+  /* ograniczyć ilość znaków w nazwie tasku i note */
+  border-bottom: solid;
 }
+
+.task-name-list {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.note {
+  grid-column: 2 / 4;
+  grid-row: second-line;
+  text-align: left;
+  padding-left: 2rem;
+  /* padding-right: 2rem; */
+}
+
+/* chceckbox: after check - deactive, after click linethrought */
 
 /* Buttons */
 
@@ -98,21 +135,21 @@ li {
 /* Buttons list */
 .btn-form {
   border: solid 1px;
+  width: min-content;
 }
 
 .btn-trash {
-  background-color: red;
-  margin-left: 20px;
+  background-color: #ff0000;
 }
 
 .btn-trash:active {
-  background-color: darkred;
+  background-color: #8b0000;
 }
 
 .btn-more {
-  background-color: yellow;
+  background-color: #ffff00;
 }
 
 .btn-more:active {
-  background-color: darkgoldenrod;
+  background-color: #b8860b;
 }
